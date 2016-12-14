@@ -85,13 +85,15 @@ void setup()
 }
 
 void printLcd()
-{
+{  
   lcd.clear();
   lcd.print("T1:");
   lcd.print(temp1);
   lcd.setCursor(11, 0);
+  if ((nowHour >= 0) && (nowHour <= 9)) lcd.print('0');
   lcd.print(nowHour);
   lcd.print(':');
+  if ((nowMinute >= 0) && (nowMinute <= 9)) lcd.print('0');
   lcd.print(nowMinute);
   
   lcd.setCursor(0, 1);
