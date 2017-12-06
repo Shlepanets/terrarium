@@ -67,6 +67,7 @@ void setup()
     // January 21, 2014 at 3am you would call:
     // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));
   }
+  // rtc.adjust(DateTime(F(__DATE__), F(__TIME__))); // line just for time setup
   now = rtc.now();
   
   nowHour = now.hour();
@@ -119,16 +120,12 @@ void loop()
 
   printLcd(); 
  }
-
+ 
+ // RELAY1 ON & OFF
  if ( (digitalRead(RELAY1) == OFF) && (nowHour >= ON_HOUR) && (nowHour < OFF_HOUR) ) 
  {
   digitalWrite(RELAY1, ON);
   relay1state = '+';   
- }
- if ( (digitalRead(RELAY2) == OFF) && (nowHour >= ON_HOUR) && (nowHour < OFF_HOUR) ) 
- {
-  digitalWrite(RELAY2, ON);
-  relay2state = '+'; 
  }
  
  if ( (digitalRead(RELAY1) == ON) && ((nowHour >= OFF_HOUR) || (nowHour < ON_HOUR)) ) 
@@ -136,10 +133,31 @@ void loop()
   digitalWrite(RELAY1, OFF);
   relay1state = '-'; 
  }
+ 
+ // RELAY2 ON & OFF 
+ if ( (digitalRead(RELAY2) == OFF) && (nowHour >= ON_HOUR) && (nowHour < OFF_HOUR) ) 
+ {
+  digitalWrite(RELAY2, ON);
+  relay2state = '+'; 
+ }
+ 
  if ( (digitalRead(RELAY2) == ON) && ((nowHour >= OFF_HOUR) || (nowHour < ON_HOUR)) ) 
  {
   digitalWrite(RELAY2, OFF); 
   relay2state = '-';
+ }
+
+ // RELAY3 ON & OFF 
+ if ( (digitalRead(RELAY3) == OFF) && (nowHour >= ON_HOUR) && (nowHour < OFF_HOUR) ) 
+ {
+  digitalWrite(RELAY3, ON);
+  relay3state = '+'; 
+ }
+ 
+ if ( (digitalRead(RELAY3) == ON) && ((nowHour >= OFF_HOUR) || (nowHour < ON_HOUR)) ) 
+ {
+  digitalWrite(RELAY3, OFF); 
+  relay3state = '-';
  }
  
 
