@@ -7,7 +7,7 @@
 #include <DallasTemperature.h>
 #include "RTClib.h"
 
-// Data wire is plugged into port 2 on the Arduino
+// Data wire is plugged into port 2 on the Arduino --- check
 #define ONE_WIRE_BUS 2
 
 // Relays' ports
