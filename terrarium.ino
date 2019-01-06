@@ -22,7 +22,7 @@
 
 // On and off time
 #define ON_HOUR 8
-#define OFF_HOUR 18
+#define OFF_HOUR 19
 
 // Setup a oneWire instance to communicate with any OneWire devices (not just Maxim/Dallas temperature ICs)
 OneWire oneWire(ONE_WIRE_BUS);
@@ -164,6 +164,3 @@ void loop()
  delay(250);
   
 }
-
-
-
